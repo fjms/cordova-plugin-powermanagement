@@ -59,7 +59,7 @@ PowerManagement.prototype.dim = function (successCallback, failureCallback) {
 }
 
 PowerManagement.prototype.isDeviceIdleMode = function (successCallback, failureCallback) {
-    cordova.exec(successCallback, failureCallback, 'PowerManagement', 'isDeviceIdleMode');
+    cordova.exec(successCallback, failureCallback, 'PowerManagement', 'isDeviceIdleMode',[]);
 }
 
 module.exports = new PowerManagement();
