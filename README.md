@@ -23,7 +23,7 @@ Usage
 -----
 
 ### [Android Only] window.powerManagement.isDeviceIdleMode(successCallback, failureCallback)
-Acquire a wakelock by calling this.
+Returns true if the device is currently in idle mode. This happens when a device has been sitting unused and unmoving for a sufficiently long period of time, so that it decides to go into a lower power-use state.
 
 	window.powerManagement.isDeviceIdleMode(function(idleMode) {
 		if(idleMode){
