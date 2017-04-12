@@ -13,7 +13,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-var PowerManagement = function() {};
+var PowerManagement = function () { };
 
 /**
  * Acquire a new wake-lock (keep device awake)
@@ -21,8 +21,8 @@ var PowerManagement = function() {};
  * @param successCallback function to be called when the wake-lock was acquired successfully
  * @param errorCallback function to be called when there was a problem with acquiring the wake-lock
  */
-PowerManagement.prototype.acquire = function(successCallback,failureCallback, runLockScreen) {
-    if( typeof runLockScreen === "undefined" ) runLockScreen = false;
+PowerManagement.prototype.acquire = function (successCallback, failureCallback, runLockScreen) {
+    if (typeof runLockScreen === "undefined") runLockScreen = false;
 
     cordova.exec(successCallback, failureCallback, 'PowerManagement', 'acquire', [runLockScreen]);
 }
@@ -33,7 +33,7 @@ PowerManagement.prototype.acquire = function(successCallback,failureCallback, ru
  * @param successCallback function to be called when the wake-lock was released successfully
  * @param errorCallback function to be called when there was a problem while releasing the wake-lock
  */
-PowerManagement.prototype.release = function(successCallback,failureCallback) {
+PowerManagement.prototype.release = function (successCallback, failureCallback) {
     cordova.exec(successCallback, failureCallback, 'PowerManagement', 'release', []);
 }
 
@@ -44,7 +44,7 @@ PowerManagement.prototype.release = function(successCallback,failureCallback) {
  * @param successCallback
  * @param errorCallback
  */
-PowerManagement.prototype.setReleaseOnPause = function(enabled, successCallback, failureCallback) {
+PowerManagement.prototype.setReleaseOnPause = function (enabled, successCallback, failureCallback) {
     cordova.exec(successCallback, failureCallback, 'PowerManagement', 'setReleaseOnPause', [enabled]);
 }
 
@@ -54,8 +54,12 @@ PowerManagement.prototype.setReleaseOnPause = function(enabled, successCallback,
  * @param successCallback function to be called when the wake-lock was acquired successfully
  * @param errorCallback function to be called when there was a problem with acquiring the wake-lock
  */
-PowerManagement.prototype.dim = function(successCallback,failureCallback) {
+PowerManagement.prototype.dim = function (successCallback, failureCallback) {
     cordova.exec(successCallback, failureCallback, 'PowerManagement', 'acquire', [true]);
+}
+
+PowerManagement.prototype.isDeviceIdleMode = function (successCallback, failureCallback) {
+    cordova.exec(successCallback, failureCallback, 'PowerManagement', 'isDeviceIdleMode');
 }
 
 module.exports = new PowerManagement();

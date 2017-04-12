@@ -14,16 +14,26 @@ For details on power functionality see:
 
 Installation
 ---------
-Install using npm:
-
-`$ npm i cordova-plugin-powermanagement-orig`
 
 Install the plugin using the cordova command line utility:
 
-`$ cordova plugin add https://github.com/Viras-/cordova-plugin-powermanagement.git`
+`$ cordova plugin add https://github.com/fjms/cordova-plugin-powermanagement.git`
 
 Usage
 -----
+
+### [Android Only] window.powerManagement.isDeviceIdleMode(successCallback, failureCallback)
+Acquire a wakelock by calling this.
+
+	window.powerManagement.isDeviceIdleMode(function(idleMode) {
+		if(idleMode){
+			console.log('Doze mode');
+		}else{
+			console.log('Normal mode');
+		}
+	}, function() {
+		console.log('Failed to check isDeviceIdleMode');
+	});
 
 ### window.powerManagement.acquire(successCallback, failureCallback)
 Acquire a wakelock by calling this.
